@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Герой секция -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 mb-4">Добро пожаловать на Студенческий портал</h1>
+        <p class="lead mb-4">Все необходимое для успешной учебы в одном месте</p>
+        {% if not session.user_id %}
+            <a href="{{ url_for('register') }}" class="btn btn-light btn-lg me-2">Начать</a>
+            <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-lg">Войти</a>
+        {% else %}
+            <a href="{{ url_for('dashboard') }}" class="btn btn-light btn-lg">Личный кабинет</a>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Функционал -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2>Наши возможности</h2>
+                <p class="text-muted">Все что нужно современному студенту</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card feature-card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">📚 Расписание</h5>
+                        <p class="card-text">Всегда актуальное расписание занятий</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card feature-card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">📝 Заметки</h5>
+                        <p class="card-text">Создавайте и храните свои учебные заметки</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card feature-card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">👥 Сообщество</h5>
+                        <p class="card-text">Общайтесь с другими студентами</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
